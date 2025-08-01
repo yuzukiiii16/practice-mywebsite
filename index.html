@@ -38,11 +38,6 @@
             --footer-text-color: #f1e9e8;  /* 頁尾文字顏色 */
         }
 
-        /* 活動經歷、專案作品的字卡顏色 */
-        .custom-card-color {
-            background-color: #f1e9e8;
-        }
-
         /* 休閒興趣圖示顏色 */
         .custom-icon-color {
             color: #f1e9e8;
@@ -92,11 +87,7 @@
             color: rgb(101, 101, 101);
         }
 
-        /* 專案圖片大小 */
-        .card-img-custom {
-            height: 220px;
-            object-fit: cover;
-        }
+
         
 
         /* 自訂一個 class，用於設定導覽列 */
@@ -133,12 +124,6 @@
             color: var(--footer-text-color);
         }
 
-
-        /* 專案作品的按鈕顏色跟我們的主題色一致 */
-        .btn-primary {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
 
         /* 設定滑鼠移到主要按鈕上時的樣式 */
         .btn-primary:hover {
@@ -188,6 +173,33 @@
         /* 自訂「分隔線」的顏色 */
         .navbar-custom-dropdown .dropdown-divider {
             border-top-color: rgba(38, 49, 36, 0.3);
+        }
+
+        /* 1. 自訂表格標頭顏色 */
+        .my-custom-header th {
+        background-color: var(--primary-color);  /* 標頭背景色 */
+        color: #000000;             /* 建議用白色文字，對比度較高 */
+        border-color: var(--primary-color);      /* 將邊框顏色設為與背景色相同 */
+    }
+
+        /* ⭐ 2. 自訂偶數行 (even) 的背景顏色 ⭐ */
+        .my-custom-table > tbody > tr:nth-of-type(even) > * {
+            background-color: #b1b3ad;
+            color: #000000; 
+        }
+
+        /* 3. 自訂奇數行 (odd) 的背景顏色 */
+        /*    我們不再依賴 Bootstrap 的預設條紋色，而是自己定義 */
+        .my-custom-table.table-striped > tbody > tr:nth-of-type(odd) > * {
+            background-color: var(--secondary-color); 
+            color: #000000;
+        }
+
+        /* 4. 自訂滑鼠懸停 (Hover) 顏色 */
+        /*    這個顏色應該要比奇偶行的顏色都更明顯 */
+        .my-custom-table.table-hover > tbody > tr:hover > * {
+            background-color: #D1E7DD; 
+            color: #000000;            /* 滑鼠移上去時的文字顏色 */
         }
     </style>
 </head>
@@ -244,24 +256,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#hobbies">休閒興趣</a>
                     </li>
-                    <!--  將「專案作品」做成下拉選單  -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#projects" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            專案作品
-                        </a>
-                        <!-- 在下方新增一個 ul 清單，class="dropdown-menu" -->
-                        <ul class="dropdown-menu navbar-custom-dropdown">
-                            <!-- 連結到整個專案區塊 -->
-                            <li><a class="dropdown-item" href="#projects">所有專案</a></li>
-                            <!-- 加上一條分隔線 -->
-                            <li><hr class="dropdown-divider"></li>
-                            <!-- 連結到特定的專案，href 記得要寫對應的網頁網址-->
-                            <li><a class="dropdown-item" href="#" target="_blank">線性迴歸</a></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">K-means 分群</a></li>
-                            <li><a class="dropdown-item" href="#" target="_blank">(請改成你的期末專題名稱)</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
                         <a class="nav-link" href="#contact">聯絡我</a>
                     </li>
                 </ul>
@@ -286,8 +280,6 @@
                     <h1 class="display-4 fw-bold">你好，我是Rin Shiraishi</h1>
                     <!-- 【修改簡介】請寫一句簡短的自我介紹或座右銘等 -->
                     <p class="lead">一位對網頁開發充滿熱情的學生</p>
-                    <!-- 【修改連結】此按鈕會連結到下方的專案區，請修正連結讓他可以成功連到專案區 -->
-                    <a href="#" class="btn btn-custom btn-lg">查看我的作品</a>
                 </div>
             </div>
         </div>
@@ -340,34 +332,49 @@
     <section id="experience" class="bg-section-light section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">活動經歷</h2>
-            <div class="row text-center">
-                <!-- 請將經歷一、二、三改為你的活動經歷，不一定要寫三個，可自行刪減 -->
-                <!-- 經歷一 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 p-3 custom-card-color">
-                        <h5 class="fw-bold">資訊社 社長</h5>
-                        <p class="text-muted">2023 - 2024</p>
-                        <p>籌辦多場程式教學工作坊，帶領社員參加校際網頁設計比賽。</p>
-                    </div>
-                </div>
-                <!-- 經歷二 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 p-3 custom-card-color">
-                        <h5 class="fw-bold">全國高中生科技競賽</h5>
-                        <p class="text-muted">2023</p>
-                        <p>以「智慧校園導覽系統」為主題，榮獲網頁應用組佳作。</p>
-                    </div>
-                </div>
-                <!-- 經歷三 -->
-                <div class="col-md-4 mb-4">
-                    <div class="card h-100 p-3 custom-card-color">
-                        <h5 class="fw-bold">程式設計冬令營 助教</h5>
-                        <p class="text-muted">2022</p>
-                        <p>協助指導學弟妹學習 Python 基礎，並批改程式作業。</p>
-                    </div>
-                </div>
-                <!-- 【如何增加？】將上面整個 <div class="col-md-4 mb-4">...</div> 區塊複製一份，貼在下面並修改文字內容即可！ -->
+
+            <!-- 使用 .table-responsive 確保在小螢幕上可以水平滾動 -->
+            <div class="table-responsive">
+                <table class="table table-striped table-hover align-middle my-custom-table">
+                    <!-- 表格標頭 -->
+                    <thead class="my-custom-header">
+                        <tr>
+                            <th scope="col" style="width: 30%;">活動 / 職位</th>
+                            <th scope="col" style="width: 20%;">時間</th>
+                            <th scope="col">內容說明</th>
+                        </tr>
+                    </thead>
+                    <!-- 表格內容 -->
+                    <tbody>
+                        <!-- 經歷一 -->
+                        <tr>
+                            <td class="fw-bold">資訊社 社長</td>
+                            <td>2023 - 2024</td>
+                            <td>籌辦多場程式教學工作坊，帶領社員參加校際網頁設計比賽。</td>
+                        </tr>
+                        <!-- 經歷二 -->
+                        <tr>
+                            <td class="fw-bold">全國高中生科技競賽</td>
+                            <td>2023</td>
+                            <td>以「智慧校園導覽系統」為主題，榮獲網頁應用組佳作。</td>
+                        </tr>
+                        <!-- 經歷三 -->
+                        <tr>
+                            <td class="fw-bold">程式設計冬令營 助教</td>
+                            <td>2022</td>
+                            <td>協助指導學弟妹學習 Python 基礎，並批改程式作業。</td>
+                        </tr>
+                        <!-- 經歷四 -->
+                        <tr>
+                            <td class="fw-bold">校內程式設計比賽</td>
+                            <td>2024</td>
+                            <td>參加校內舉辦的 Python 解題競賽，完成多項程式挑戰並獲得佳績。</td>
+                        </tr>
+                        <!-- 【如何增加？】將上面任一個 <tr>...</tr> 區塊複製一份，貼在下面並修改文字內容即可！ -->
+                    </tbody>
+                </table>
             </div>
+
         </div>
     </section>
 
@@ -386,47 +393,23 @@
                          然後替換掉下面的 "bi-music-note-beamed" 這個 class 名稱。 -->
                     <i class="bi bi-music-note-beamed display-4 custom-icon-color"></i>
                     <h5 class="mt-2 fw-bold">聽音樂</h5>
-                    <p class="text-muted">喜歡搖滾與爵士樂</p>
+                    <p class="text-muted">喜歡日文歌</p>
+                    <!-- 【修改連結】此按鈕會連結到喜歡的歌曲 -->
+                    <a href="https://youtu.be/yiU0I0tvt6s?si=VOvtOTbI75kLg9bF" class="btn btn-custom btn-lg" target="_blank">我推薦的歌</a>
                 </div>
                 <!-- 興趣二 -->
                 <div class="col-md-4 mb-4">
                     <i class="bi bi-book-half display-4 custom-icon-color"></i>
                     <h5 class="mt-2 fw-bold">閱讀</h5>
                     <p class="text-muted">偏好科幻與推理小說</p>
+                    <a href="https://www.books.com.tw/products/0010476621?srsltid=AfmBOorH1iszxOa1LM8BkKCcUBkxgkrETYEydFbzosm91bg9TPsXnwGW" class="btn btn-custom btn-lg" target="_blank">我推薦的書</a>
                 </div>
                 <!-- 興趣三 -->
                 <div class="col-md-4 mb-4">
-                    <i class="bi bi-dribbble display-4 custom-icon-color"></i>
-                    <h5 class="mt-2 fw-bold">打籃球</h5>
-                    <p class="text-muted">週末會和朋友一起運動</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================= -->
-    <!--                   專案作品                     -->
-    <!-- 介紹你作品！請修改成你這學期會做的作品，本週只有線性迴歸。或是有其他想介紹非課程中的作品也可自行增加。 -->
-    <!-- ============================================= -->
-    <section id="projects" class="bg-section-light section-padding">
-        <div class="container">
-            <h2 class="text-center fw-bold mb-5">專案作品</h2>
-            <div class="row">
-                <!-- 專案一 -->
-                <div class="col-md-6 col-lg-4 mb-4">
-                    <div class="card h-100 custom-card-color">
-                        <!-- 【修改圖片】將 "image/eng-website.png" 換成你的專案圖片路徑，請將圖片存到image資料夾中。 -->
-                        <img src="image/lr.jpeg" class="card-img-top card-img-custom" alt="專案一">
-                        <div class="card-body d-flex flex-column">
-                            <!-- 【修正文字】 請改成你的作品的名稱和簡介 -->
-                            <h5 class="card-title">線性迴歸</h5>
-                            <p class="card-text">（請簡單說明你的線性迴歸專題）</p>
-                            <!-- 【修改連結】將 "#" 換成你專案的實際網址。-->
-                            <a href="#" class="btn btn-primary mt-auto" target="_blank">查看詳情</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- 【如何增加？】將上面整個 <div class="col-md-6 col-lg-4 mb-4">...</div> 區塊複製一份，貼在下面並修改文字內容即可！ -->
+                    <i class="bi bi-person-video3 display-4 custom-icon-color"></i>
+                    <h5 class="mt-2 fw-bold">看動漫</h5>
+                    <p class="text-muted">喜歡看各類型的動漫</p>
+                    <a href="https://kusuriyanohitorigoto.jp/" class="btn btn-custom btn-lg" target="_blank">我推薦的動漫</a>
                 </div>
             </div>
         </div>
@@ -435,7 +418,7 @@
     <!-- ============================================= -->
     <!--                  聯絡我 (Contact)                -->
     <!-- ============================================= -->
-    <section id="contact" class="section-padding">
+    <section id="contact" class="bg-section-light section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-4">聯絡我</h2>
             <div class="text-center">
