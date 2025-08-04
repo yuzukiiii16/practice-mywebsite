@@ -1,59 +1,86 @@
+<!-- 【修改說明】
+ ⭐️：必須修改。
+ ❗：可依背景顏色調整，若已與背景有良好對比則可不必修改。 -->
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <!-- 網頁基本設定 -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 網頁標題（顯示在瀏覽器分頁上），請改成你的網頁名稱 -->
+
+    <!-- ⭐️ 網頁標題（顯示在瀏覽器分頁上），請改成你的網頁名稱 ⭐️-->
     <title>Rin Shiraishi的個人網頁</title>
-    <!-- 設定網頁的小圖示（favicon），會顯示在網址列或分頁左側。
-     若使用 .jpg 或其他格式，請一併修改 type 屬性 -->
+    <!-- ⭐️ 設定網頁的小圖示（favicon），會顯示在網址列或分頁左側。
+     若使用 .jpg 或其他格式，請一併修改 type 屬性 ⭐️-->
     <link rel="icon" href="image/icon.png" type="image/png">
 
-    <!-- 1. 引入 Bootstrap 的 CSS -->
+    <!-- 引入 Bootstrap 的 CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- 2. 引入 Bootstrap Icons 的 CSS (提供小圖示) -->
+    <!-- 引入 Bootstrap Icons 的 CSS (提供小圖示) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
-    <!-- 自訂樣式 -->
+    <!-- 自訂樣式，請依照你選擇的配色修改標示的部分。若文字顏色與背景色已具良好對比，就不必再修改。 -->
     <style>
-        /* --- ！！以下顏色可根據喜好修改！！ --- */
-        :root {
-            /* --- 基礎配色 --- */
-            --primary-color: #979B8D;      /* 主要顏色 */
-            --secondary-color: #f1e9e8;    /* 次要顏色（按鈕、淺色文字） */
-            --body-bg-color: #979B8D;      /* 整個網頁的背景色 */
-            --default-text-color: #212529; /* 主要文字顏色*/
-            
-            /* --- 導覽列配色 --- */
-            --navbar-bg-color: #5C7457;    /* 導覽列背景色*/
-            --navbar-text-color: #f1e9e8; /* 導覽列文字顏色 */
-            --navbar-hover-color: #ffffff; /* 導覽列滑鼠移過時的文字顏色 */
-
-            /* --- 區塊配色 --- */
-            --light-section-bg: #EFD0CA;   /* 淺色區塊的背景色  */
-
-            /* --- 頁尾配色 --- */
-            --footer-bg-color: #5C7457;    /* 頁尾背景色  */
-            --footer-text-color: #f1e9e8;  /* 頁尾文字顏色 */
-        }
-
-        /* 休閒興趣圖示顏色 */
-        .custom-icon-color {
-            color: #f1e9e8;
-        }
-
-
-        /* --- ▼▼▼ 以下樣式設定較為複雜，除非你對相關語法有一定了解，否則不建議修改。 ▼▼▼ --- */
         /* 這是針對整個 <body> 標籤的設定，會影響整個網頁的基礎樣式 */
         body {
             /* 因為導覽列被設定為 fixed-top (固定在頂部)，所以內容區塊需要向下推一點空間，
-               才不會被導覽列蓋住。56px 是 Bootstrap 導覽列的預設高度。 */
+            才不會被導覽列蓋住。56px 是 Bootstrap 導覽列的預設高度。 */
             padding-top: 56px;
-            /* 設定整個網頁的背景顏色。我們使用 CSS 變數，顏色定義在 :root 裡。 */
-            background-color: var(--body-bg-color);
-            /* 設定整個網頁的預設文字顏色。 */
-            color: var(--default-text-color);
+            background-color: #C1BCAC; /* ⭐️  整個網頁的背景色 ⭐️ */
+            color: #212529;            /* ❗ 主要文字顏色 ❗ */
+        }
+
+        /* --- 導覽列樣式 --- */
+        .navbar-custom {
+            background-color:#5C7457 ; /* ⭐️ 導覽列背景色 ⭐️ */
+        }
+        /* 選取導覽列中的「品牌名稱」和「導覽連結」 */
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #f1e9e8; /* ❗ 導覽列文字顏色 ❗ */
+        }
+        
+        /* --- 區塊背景樣式 --- */
+        /* 首頁區塊 */
+        .bg-section-primary {
+            background-color: #979B8D; /* ⭐️ 首頁區塊的背景色 ⭐️ */
+            color: #f1e9e8;            /* ❗ 首頁區塊的文字顏色 ❗ */
+        }
+        /* 淺色背景區塊 */
+        .bg-section-light {
+            background-color: #EFD0CA; /* ⭐️ 淺色區塊的背景色 ⭐️ */
+        }
+        
+        /* ❗ 休閒興趣圖示顏色 ❗ */
+        .custom-icon-color {
+            color: #000000;
+        }
+
+        /* --- 頁尾樣式 --- */
+        .footer-custom {
+            background-color: #5C7457; /* ⭐️ 頁尾背景色 ⭐️ */
+            color: #f1e9e8;           /* ❗ 頁尾文字顏色 ❗ */
+        }
+
+        
+
+
+        /* --- ▼▼▼ 以下樣式設定較為複雜，除非你對相關語法有一定了解，否則不建議修改。 ▼▼▼ --- */
+        /* 
+          這段 CSS 的作用：
+          僅在螢幕寬度大於或等於 992px (通常是桌機和大型平板) 時，
+          才啟用滑鼠懸停下拉選單的功能。
+          這樣可以避免在手機等觸控裝置上造成操作問題。
+        */
+        @media (min-width: 992px) {
+            /* 
+              選擇器的意思是：當滑鼠懸停在 (.navbar 裡面的 .nav-item.dropdown) 上時，
+              讓它裡面的 .dropdown-menu 顯示出來。
+            */
+            .navbar .nav-item.dropdown:hover .dropdown-menu {
+                display: block;
+                margin-top: 0; /* 移除選單和按鈕之間可能存在的小間距，讓它更貼合 */
+            }
         }
 
         /* 這是一個自訂的 class，用來給每個區塊 (section) 增加上下間距 */
@@ -72,134 +99,22 @@
             /* 自動裁切圖片以填滿整個容器 */
             object-fit: cover;
         }
-
-        /* 按鈕顏色、邊框顏色、文字顏色 */
-        .btn-custom {
-            background-color: var(--secondary-color);
-            border-color: var(--secondary-color);
-            color: var(--default-text-color);
-        }
-
-        /* 按鈕滑鼠移上去時的變色效果 */
-        .btn-custom:hover {
-            background-color: #cdc5c4; 
-            border-color: #cdc5c4;
-            color: rgb(101, 101, 101);
-        }
-
-
         
-
-        /* 自訂一個 class，用於設定導覽列 */
-        .navbar-custom {
-            background-color: var(--navbar-bg-color) !important;
-        }
-
-        /* 選取導覽列中的「品牌名稱」和「導覽連結」 */
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: var(--navbar-text-color);
-        }
-
-        /* 選取滑鼠「懸停(:hover)」在品牌名稱和導覽連結上時的狀態 */
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .navbar-brand:hover {
-            color: var(--navbar-hover-color);
-        }
-
-        /* 自訂一個 class，用於設定那些要使用「主色」當背景的區塊 (例如首頁) */
-        .bg-section-primary {
-            background-color: var(--primary-color);
-            color: var(--secondary-color); 
-        }
-
-         /* 自訂一個 class，用於設定那些要使用「淺色」當背景的區塊 */
-        .bg-section-light {
-            background-color: var(--light-section-bg);
-        }
-
-        /* 自訂一個 class，用於設定頁尾 (footer)  */
-        .footer-custom {
-            background-color: var(--footer-bg-color);
-            color: var(--footer-text-color);
-        }
-
-
-        /* 設定滑鼠移到主要按鈕上時的樣式 */
-        .btn-primary:hover {
-            /* opacity: 0.9 讓按鈕稍微變透明一點。 */
-            opacity: 0.9;
-            /* 再次設定背景和邊框色，確保它不會變回 Bootstrap 預設的顏色。 */
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .dropdown-toggle:focus {
-            box-shadow: none !important; /* !important 用來確保能覆蓋掉 Bootstrap 的預設樣式 */
-            outline: none !important;
-        }
-
-        /* 
-          這段 CSS 的作用：
-          僅在螢幕寬度大於或等於 992px (通常是桌機和大型平板) 時，
-          才啟用滑鼠懸停下拉選單的功能。
-          這樣可以避免在手機等觸控裝置上造成操作問題。
-        */
-        @media (min-width: 992px) {
-            /* 
-              選擇器的意思是：當滑鼠懸停在 (.navbar 裡面的 .nav-item.dropdown) 上時，
-              讓它裡面的 .dropdown-menu 顯示出來。
-            */
-            .navbar .nav-item.dropdown:hover .dropdown-menu {
-                display: block;
-                margin-top: 0; /* 移除選單和按鈕之間可能存在的小間距，讓它更貼合 */
-            }
-        }
-        /* 自訂下拉選單的背景顏色 */
-        .navbar-custom-dropdown {
-            background-color: var(--navbar-bg-color);
-        }
-
-        /* 自訂下拉選單中「選項文字」的顏色 */
-        .navbar-custom-dropdown .dropdown-item {
-            color: #ffffff; 
-        }
         /* 自訂滑鼠「懸停」在選項上時的樣式 */
         .navbar-custom-dropdown .dropdown-item:hover {
             color: #ffffff;
             background-color: rgb(92, 103, 113, 0.3); 
         }
+        
+        /* 滑鼠「懸停(:hover)」在品牌名稱和導覽連結上時的狀態 */
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .navbar-brand:hover {
+            color: #ffffff; /* 導覽列滑鼠移過時的文字顏色 */
+        }
 
         /* 自訂「分隔線」的顏色 */
         .navbar-custom-dropdown .dropdown-divider {
             border-top-color: rgba(38, 49, 36, 0.3);
-        }
-
-        /* 1. 自訂表格標頭顏色 */
-        .my-custom-header th {
-        background-color: var(--primary-color);  /* 標頭背景色 */
-        color: #000000;             /* 建議用白色文字，對比度較高 */
-        border-color: var(--primary-color);      /* 將邊框顏色設為與背景色相同 */
-    }
-
-        /* ⭐ 2. 自訂偶數行 (even) 的背景顏色 ⭐ */
-        .my-custom-table > tbody > tr:nth-of-type(even) > * {
-            background-color: #b1b3ad;
-            color: #000000; 
-        }
-
-        /* 3. 自訂奇數行 (odd) 的背景顏色 */
-        /*    我們不再依賴 Bootstrap 的預設條紋色，而是自己定義 */
-        .my-custom-table.table-striped > tbody > tr:nth-of-type(odd) > * {
-            background-color: var(--secondary-color); 
-            color: #000000;
-        }
-
-        /* 4. 自訂滑鼠懸停 (Hover) 顏色 */
-        /*    這個顏色應該要比奇偶行的顏色都更明顯 */
-        .my-custom-table.table-hover > tbody > tr:hover > * {
-            background-color: #D1E7DD; 
-            color: #000000;            /* 滑鼠移上去時的文字顏色 */
         }
     </style>
 </head>
@@ -219,9 +134,9 @@
     -->
     <nav class="navbar navbar-expand-lg navbar-custom fixed-top">
         <div class="container">
-            <!-- 【品牌/網站名稱】這是顯示在導覽列最左邊的網站名稱 -->
+            <!-- ⭐️【品牌/網站名稱】這是顯示在導覽列最左邊的網站名稱，請改成你的網頁的名稱 ⭐️-->
             <!-- href="#" 會讓使用者在點擊這裡時，移動到首頁。 -->
-            <a class="navbar-brand" href="index.html">Rin Shiraishi‘s website</a>
+            <a class="navbar-brand" href="#">Rin Shiraishi‘s website</a>
 
             <!-- 【漢堡選單按鈕】這個按鈕只有在小螢幕上才會出現。-->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -232,20 +147,18 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
 
-                    <!-- 【可自行修改導覽列】下面每一個 <li>...</li> 都代表一個連結。 -->
-                     <!-- 【如何增加或刪除連結？】
-                         - 想增加：完整複製上面任何一個 <li class="nav-item">...</li> 區塊，貼在下面，然後修改 href（連結）和文字，請注意網頁內部區塊的連結前面一定要有# 。
+                    <!-- ⭐️【自行修改導覽列】下面每一個 <li>...</li> 都代表一個連結，請修正連結至對應的區塊。⭐️ -->
+                     <!-- 【如何找到對應的連結？】
                          - 連結怎麼找：
                             ・各個<header>或<section>標籤裡面的id。
                             ・以關於我為例：<section id="about"> 裡的 id="about" 表示這個區塊的名稱是 about。
-                            ・要從導覽列連到這個區塊時，連結寫法為：<a href="#about">關於我</a>，這樣才能對應到該區塊的 id。
-                         - 想刪除：完整刪掉其中一個 <li>...</li> 區塊即可。
-                         - 順序：你可以自由調整這些 <li> 區塊的順序，來改變導覽列連結的排列。 -->
+                            ・要從導覽列連到這個區塊時，連結寫法為：<a href="#about">關於我</a>，這樣才能對應到該區塊的 id。 -->
+                     <!-- 【補充】
+                         - 增加：完整複製上面任何一個 <li class="nav-item">...</li> 區塊，貼在下面，然後修改 href（連結）和文字，請注意網頁內部區塊的連結前面一定要有# 。
+                         - 刪除：完整刪掉其中一個 <li>...</li> 區塊即可。
+                         - 順序：你可以自由調整這些 <li> 區塊的順序，來改變導覽列連結的排列。但請盡量與網頁顯示順序一致，以避免混淆。 -->
                     <li class="nav-item">
                         <a class="nav-link" href="index.html">首頁</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">關於我</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#education">教育背景</a>
@@ -271,55 +184,42 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-md-4">
-                    <!-- 【修改圖片】請將 "image/profile.jpeg" 換成你自己的大頭照路徑，請將大頭貼存在image的資料夾，並用英文命名 -->
+                    <!-- ⭐️ 【修改圖片】請將 "image/profile.jpeg" 換成你自己的大頭照路徑，請將大頭貼存在image的資料夾，並用英文命名 ⭐️-->
                     <!-- 提示：請確認你的圖片檔名和路徑都正確，例如 "images/my-photo.jpg" -->
                     <img src="image/profile.jpeg" class="img-fluid rounded-circle profile-img" alt="大頭照">
                 </div>
                 <div class="col-md-8 text-md-start mt-4 mt-md-0">
-                    <!-- 【修改姓名】請將 "Rin Shiraishi" 換成你自己的名字 -->
+                    <!-- ⭐️ 【修改姓名】請將 "Rin Shiraishi" 換成你自己的名字 ⭐️-->
                     <h1 class="display-4 fw-bold">你好，我是Rin Shiraishi</h1>
-                    <!-- 【修改簡介】請寫一句簡短的自我介紹或座右銘等 -->
-                    <p class="lead">一位對網頁開發充滿熱情的學生</p>
+                    <!-- ⭐️ 【修改簡介】請寫一句簡短的自我介紹或座右銘等 ⭐️ -->
+                    <p class="lead">我目前就讀於數位科技高中，對前端技術特別感興趣。我喜歡將腦中的想法，透過程式碼轉化為實際可互動的網頁。平常喜歡學習新的技術，例如 Bootstrap、React 等，並樂於接受挑戰。</p>
                 </div>
             </div>
         </div>
     </header>
 
     <!-- ============================================= -->
-    <!--                   簡介                         -->
-    <!--            請根據提示修改成你自己的內容！           -->
-    <!-- ============================================= -->
-    <section id="about" class="bg-section-light section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 offset-lg-2 text-center">
-                    <h2 class="fw-bold">關於我</h2>
-                    <!-- 【修改段落】請將這個段落的文字，換成你的自我介紹！ -->
-                    <p class="lead mt-4">
-                        我目前就讀於數位科技高中，對前端技術特別感興趣。我喜歡將腦中的想法，透過程式碼轉化為實際可互動的網頁。平常喜歡學習新的技術，例如 Bootstrap、React 等，並樂於接受挑戰。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================= -->
     <!--                  教育背景                       -->
     <!--            請根據提示修改成你自己的內容！           -->
     <!-- ============================================= -->
-    <section id="education" class="section-padding">
+    <section id="education" class="bg-section-light section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">教育背景</h2>
             <div class="row">
                 <div class="col-lg-8 offset-lg-2">
-                    <!-- 【請將項目一修改成你的高中】 -->
+                    <!-- ⭐️ 【請將項目一修改成你的高中】 ⭐️ -->
                     <!-- 項目一 -->
                     <div class="mb-4">
                         <h4 class="fw-bold">數位科技高中</h4>
                         <p class="text-muted">2022 - 至今</p>
                         <p>主修資訊科技，學習網頁設計、程式語言與資料庫管理。擔任資訊社社長。</p>
                     </div>
-                    <!-- 【請增加國中學歷】如何增加：將上面整個 <div class="mb-4">...</div> 區塊複製一份，貼在下面再修改文字內容即可！ -->
+                    <!-- ⭐️ 【請增加國中學歷】如何增加：將上面整個 <div class="mb-4">...</div> 區塊複製一份，貼在下面再修改文字內容即可！⭐️ -->
+                    <div class="mb-4">
+                        <h4 class="fw-bold">數位科技國中</h4>
+                        <p class="text-muted">2019 - 2022</p>
+                        <p>參與資訊研究社，對網頁設計與程式開發產生興趣，並多次代表學校參加科技相關比賽。</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -329,22 +229,22 @@
     <!--                      活動經歷                  -->
     <!--             請根據提示修改成你自己的內容！         -->
     <!-- ============================================= -->
-    <section id="experience" class="bg-section-light section-padding">
+    <section id="experience" class="section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">活動經歷</h2>
 
             <!-- 使用 .table-responsive 確保在小螢幕上可以水平滾動 -->
             <div class="table-responsive">
-                <table class="table table-striped table-hover align-middle my-custom-table">
+                <table class="table table-secondary table-striped table-hover align-middle">
                     <!-- 表格標頭 -->
-                    <thead class="my-custom-header">
+                    <thead>
                         <tr>
                             <th scope="col" style="width: 30%;">活動 / 職位</th>
                             <th scope="col" style="width: 20%;">時間</th>
                             <th scope="col">內容說明</th>
                         </tr>
                     </thead>
-                    <!-- 表格內容 -->
+                    <!-- ⭐️ 表格內容：請自行上網或從bootstrap官網搜尋表格要怎麼寫，自行完成表格，請至少填兩個活動經歷 ⭐️-->
                     <tbody>
                         <!-- 經歷一 -->
                         <tr>
@@ -382,11 +282,10 @@
     <!--                     休閒興趣                    -->
      <!--             請根據提示修改成你自己的內容！         -->
     <!-- ============================================= -->
-    <section id="hobbies" class="section-padding">
+    <section id="hobbies" class="bg-section-light section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-5">休閒興趣</h2>
             <div class="row text-center">
-                <!-- 請將興趣一、二、三改為你的休閒興趣，不一定要寫三個，可自行刪減 -->
                 <!-- 興趣一 -->
                 <div class="col-md-4 mb-4">
                     <!-- 【修改圖示】到 Bootstrap Icons 網站 (https://icons.getbootstrap.com/) 找一個喜歡的圖示，
@@ -395,22 +294,23 @@
                     <h5 class="mt-2 fw-bold">聽音樂</h5>
                     <p class="text-muted">喜歡日文歌</p>
                     <!-- 【修改連結】此按鈕會連結到喜歡的歌曲 -->
-                    <a href="https://youtu.be/yiU0I0tvt6s?si=VOvtOTbI75kLg9bF" class="btn btn-custom btn-lg" target="_blank">我推薦的歌</a>
+                    <a href="https://youtu.be/yiU0I0tvt6s?si=VOvtOTbI75kLg9bF" class="btn btn-outline-dark" target="_blank">我推薦的歌</a>
                 </div>
                 <!-- 興趣二 -->
                 <div class="col-md-4 mb-4">
                     <i class="bi bi-book-half display-4 custom-icon-color"></i>
                     <h5 class="mt-2 fw-bold">閱讀</h5>
                     <p class="text-muted">偏好科幻與推理小說</p>
-                    <a href="https://www.books.com.tw/products/0010476621?srsltid=AfmBOorH1iszxOa1LM8BkKCcUBkxgkrETYEydFbzosm91bg9TPsXnwGW" class="btn btn-custom btn-lg" target="_blank">我推薦的書</a>
+                    <a href="https://www.books.com.tw/products/0010476621?srsltid=AfmBOorH1iszxOa1LM8BkKCcUBkxgkrETYEydFbzosm91bg9TPsXnwGW" class="btn btn-outline-dark" target="_blank">我推薦的書</a>
                 </div>
                 <!-- 興趣三 -->
                 <div class="col-md-4 mb-4">
                     <i class="bi bi-person-video3 display-4 custom-icon-color"></i>
                     <h5 class="mt-2 fw-bold">看動漫</h5>
                     <p class="text-muted">喜歡看各類型的動漫</p>
-                    <a href="https://kusuriyanohitorigoto.jp/" class="btn btn-custom btn-lg" target="_blank">我推薦的動漫</a>
+                    <a href="https://kusuriyanohitorigoto.jp/" class="btn btn-outline-dark" target="_blank">我推薦的動漫</a>
                 </div>
+                
             </div>
         </div>
     </section>
@@ -418,18 +318,18 @@
     <!-- ============================================= -->
     <!--                  聯絡我 (Contact)                -->
     <!-- ============================================= -->
-    <section id="contact" class="bg-section-light section-padding">
+    <section id="contact" class="section-padding">
         <div class="container">
             <h2 class="text-center fw-bold mb-4">聯絡我</h2>
             <div class="text-center">
                 <!-- 可自行修改文字內容 -->
-                <p class="lead">如果您對我的作品有興趣，歡迎透過以下方式與我聯繫！</p>
+                <p class="lead">歡迎透過以下方式與我聯繫！</p>
                 <p class="fs-4">
-                    <!-- 【修改 Email】將 "student@example.com" 換成你自己的電子郵件信箱。
+                    <!-- ⭐️ 【修改 Email】將 "student@example.com" 換成你自己的電子郵件信箱。 ⭐️
                          "mailto:" 讓點擊連結的人自動打開寫信軟體。 -->
                     <a href="mailto:student@example.com" class="text-dark me-3"><i class="bi bi-envelope-fill"></i></a>
-                    <!-- 【修改 GitHub 連結】將 "#" 換成你自己的 GitHub 個人頁面網址。 -->
-                    <a href="#" class="text-dark me-3"><i class="bi bi-github"></i></a>
+                    <!-- ⭐️ 【修改 GitHub 連結】將 "#" 換成你自己的 GitHub 個人頁面網址。 ⭐️ -->
+                    <a href="https://github.com/" class="text-dark me-3" target="_blank"><i class="bi bi-github"></i></a>
                     <!-- 可自行增加其他聯絡方式 -->
                 </p>
             </div>
@@ -442,7 +342,7 @@
     <!-- ============================================= -->
     <footer class="text-center py-3 footer-custom">
         <div class="container">
-            <!-- 【修改年份和姓名】將"Rin Shiraishi" 換成你的名字。 -->
+            <!-- ⭐️ 【修改姓名】將"Rin Shiraishi" 換成你的名字。 ⭐️ -->
             <!-- "©" ：這個版權符號。 -->
             <p class="mb-0">© 2025 Rin Shiraishi. All Rights Reserved.</p>
         </div>
