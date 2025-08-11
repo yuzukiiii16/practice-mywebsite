@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>房價預測分析 - 紐約 Airbnb</title>
+    <!-- 引入 Bootstrap 5 的 CSS 樣式表，用於美化網頁介面 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* --- 頁尾樣式 --- */
+        .footer-custom {
+            background-color: #494c48; /* ⭐️ 頁尾背景色 ⭐️ */
+            color: #ffffff;           /* ❗ 頁尾文字顏色 ❗ */
+        }
+
+        /* --- 模擬器區塊的樣式 --- */
+        .simulator {
+            background-color: #e7e7e7; /* 背景色 */
+            border-radius: 15px;      /* 圓角 */
+            padding: 2rem;            /* 內邊距 */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* 陰影效果 */
+        }
+
+        /* --- 預測價格顯示的文字樣式 --- */
+        #predicted-price {
+            font-size: 2.5rem;   /* 字體大小 */
+            font-weight: bold;   /* 字體粗細 */
+            color: #0d6efd;      /* 字體顏色 (藍色) */
+        }
+        
+
+        /* --- 網頁基礎樣式設定 --- */
+        body {
+            padding-top: 56px; /* 為了頂部固定的導航欄預留空間 */
+        }
+        .content-section { padding: 4rem 0; }
+        
+        /* --- 滑桿(Slider)樣式優化 --- */
+        .slider-container {
+            display: flex;         /* 使用 Flexbox 佈局 */
+            align-items: center;   /* 垂直置中 */
+            gap: 1rem;             /* 元件間距 */
+        }
+        .form-range {
+            flex-grow: 1;
+            -webkit-appearance: none; /* 隱藏 WebKit 瀏覽器的原生滑桿樣式 */
+            appearance: none;         /* 隱藏標準的原生滑桿樣式 */
+            background-color: transparent; /* 隱藏原生軌道背景 */
+            cursor: pointer;          /* 鼠標樣式為指針 */
+        }
+        /* --- Chrome, Safari, Edge 瀏覽器的滑桿軌道樣式 --- */
+        .form-range::-webkit-slider-runnable-track {
+            height: 6px;           /* 軌道高度 */
+            background: #dee2e6;   /* 軌道顏色 */
+            border-radius: 3px;    /* 軌道圓角 */
+        }
+        /* --- Firefox 瀏覽器的滑桿軌道樣式 --- */
+        .form-range::-moz-range-track {
+            height: 6px;
+            background: #dee2e6;
+            border-radius: 3px;
+        }
+
+        /* --- 控制點 (Thumb) 樣式 --- */
+        .form-range::-webkit-slider-thumb {
+            -webkit-appearance: none; /* 必須設置才能自訂樣式 */
+            margin-top: -5px; /* 垂直置中控制點 */
+        }
+        
+        /* --- 拖曳時的互動效果 --- */
+        .form-range:active::-webkit-slider-thumb {
+            transform: scale(1.2); /* 放大控制點 */
+            box-shadow: 0 0 10px rgba(13, 110, 253, 0.4); /* 增加陰影 */
+        }
+        .form-range:active::-moz-range-thumb {
+            box-shadow: 0 0 10px rgba(13, 110, 253, 0.4);
+        }
+        .range-label {
+            font-weight: 500;
+            color: #6c757d;
+            min-width: 25px; /* 給予數字標籤固定寬度，避免滑動時跳動 */
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- 主要內容區塊 -->
+    <div class="container content-section pt-5">
+        <div class="text-center mb-5">
+            <h2>房價預測與互動模擬</h2>
+            <p class="lead">透過我們的分析，了解影響紐約房價的關鍵，並親手模擬您的理想房價！</p>
+        </div>
+
+        <!-- 互動模擬器區塊 -->
+        <div class="simulator mb-5">
+            <h3 class="text-center mb-4">房價模擬器</h3>
+            <div class="row">
+                <!-- 左半邊的控制項 -->
+                <div class="col-md-6">
+                    <!-- 臥室數量滑桿 -->
+                    <div class="mb-4">
+                        <label for="bedrooms" class="form-label">臥室數量: <span id="bedrooms-value" class="text-primary fw-bold">1</span></label>
+                        <div class="slider-container">
+                            <span class="range-label">0</span>
+                            <!-- oninput="updateValues()" 表示每次滑動這個滑桿，都會呼叫 updateValues 函數來更新預測價格 -->
+                            <input type="range" class="form-range" id="bedrooms" min="0" max="5" value="1" oninput="updateValues()">
+                            <span class="range-label">5</span>
+                        </div>
+                    </div>
+                    <!-- 床位數量滑桿 -->
+                    <div class="mb-4">
+                        <label for="beds" class="form-label">床位數量: <span id="beds-value" class="text-primary fw-bold">1</span></label>
+                        <div class="slider-container">
+                            <span class="range-label">1</span>
+                            <input type="range" class="form-range" id="beds" min="1" max="10" value="1" oninput="updateValues()">
+                            <span class="range-label">10</span>
+                        </div>
+                    </div>
+                     <!-- 衛浴數量滑桿 -->
+                    <div class="mb-4">
+                        <label for="baths" class="form-label">衛浴數量: <span id="baths-value" class="text-primary fw-bold">1.0</span></label>
+                        <div class="slider-container">
+                             <span class="range-label">0</span>
+                            <input type="range" class="form-range" id="baths" min="0" max="5"  value="1" oninput="updateValues()">
+                             <span class="range-label">5</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 右半邊的控制項 -->
+                <div class="col-md-6">
+                    <!-- 預期評分滑桿 -->
+                     <div class="mb-4">
+                        <label for="rating" class="form-label">預期評分: <span id="rating-value" class="text-primary fw-bold">4.5</span></label>
+                         <div class="slider-container">
+                            <span class="range-label">3</span>
+                            <input type="range" class="form-range" id="rating" min="3" max="5" step="0.1" value="4.5" oninput="updateValues()">
+                            <span class="range-label">5</span>
+                        </div>
+                    </div>
+                    <!-- 行政區下拉選單 -->
+                    <div class="mb-3">
+                        <label for="neighbourhood_group" class="form-label">行政區</label>
+                        <!-- onchange="updateValues()" 表示每次變更選項，都會呼叫 updateValues 函數 -->
+                        <select class="form-select" id="neighbourhood_group" onchange="updateValues()">
+                            <!-- 
+                                這裡的 value 不是類別名稱，而是從 Python 模型中得到的「One-Hot 編碼」後對應的係數。
+                                例如，選擇 Manhattan，在計算時就會直接加上 0.3369 這個值。
+                                這些係數代表了不同行政區相對於基準區對「對數價格」的影響程度。
+                            -->
+                            <option value="-0.1573">Bronx</option>
+                            <option value="0.0674">Brooklyn</option>
+                            <option value="0.3369" selected>Manhattan</option>
+                            <option value="-0.0938">Queens</option>
+                            <option value="-0.1532">Staten Island</option>
+                        </select>
+                    </div>
+                    <!-- 房型下拉選單 -->
+                    <div class="mb-3">
+                        <label for="room_type" class="form-label">房型</label>
+                        <select class="form-select" id="room_type" onchange="updateValues()">
+                            <!-- 同樣地，這裡的 value 是從 Python 模型得到的 One-Hot 編碼特徵的係數 -->
+                            <option value="0.2193" selected>Entire home/apt</option>
+                            <option value="0.2805">Hotel room</option>
+                            <option value="-0.2217">Private room</option>
+                            <option value="-0.2781">Shared room</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- 價格顯示區 -->
+            <div class="text-center mt-4">
+                <h5>預測每晚價格</h5>
+                <!-- 預測價格會由 JavaScript 計算後填入這裡 -->
+                <p id="predicted-price">$150.00</p>
+                <small class="text-muted">*此為基於線性迴歸模型的簡化模擬結果，實際價格可能因其他因素變動。</small>
+            </div>
+        </div>
+
+        <!-- 靜態分析結果區塊 -->
+        <div class="row align-items-center">
+            <div class="col-md-7">
+                <h4>模型預測結果解讀</h4>
+                <p>我們使用線性迴歸模型來預測房價，以下是關鍵的評估指標：</p>
+                <ul>
+                    <!-- 
+                        R² 和 RMSE 的值，都是從 Python 筆記本 `p_Linear_Regression.ipynb` 的模型評估結果中直接複製過來的靜態數據。
+                    -->
+                    <li><strong>R² (判定係數): 0.4816</strong><br>這代表我們的模型能夠解釋約 48.2% 的房價變異。這是一個中等程度的解釋力，表示我們選用的特徵是影響價格的重要因素。</li>
+                    <li><strong>RMSE (均方根誤差): $94.84</strong><br>此數值表示模型的預測價格與實際價格平均相差約 95 美元，可作為您規劃預算時的參考。</li>
+                </ul>
+            </div>
+            <div class="col-md-5">
+                <!-- 
+                    這張圖片 `lr.png` 是在 Python 筆記本中繪製「實際價格 vs. 預測價格散佈圖」後儲存下來的圖片。
+                    網頁直接引用這張靜態圖片來展示模型的預測效果。
+                -->
+                <img src="image/lr.png" class="img-fluid rounded shadow-sm" alt="預測價格與實際價格散佈圖">
+                <p class="text-center mt-2 small text-muted">實際價格 vs. 預測價格散佈圖</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- JavaScript 程式碼區塊 -->
+    <script>
+        // 這個 `coefficients` 物件儲存了從 Python 線性迴歸模型訓練結果中得到的「截距」和各「數值特徵的係數」。
+        // 這些數字是整個預測模型的核心。
+        const coefficients = {
+            intercept: 2.9784,   // 截距 (Intercept)
+            bedrooms: 0.1491,    // 'bedrooms' 特徵的係數
+            beds: 0.1070,        // 'beds' 特徵的係數
+            baths: 0.0757,       // 'baths' 特徵的係數
+            rating: 0.2606,      // 'rating' 特徵的係數
+        };
+
+        // 這個函數負責更新滑桿旁邊顯示的數值，並呼叫 calculatePrice() 來重新計算價格。
+        function updateValues() {
+            // 從 HTML 元件中讀取使用者設定的值，並更新顯示在 label 上的文字
+            document.getElementById('bedrooms-value').textContent = document.getElementById('bedrooms').value;
+            document.getElementById('beds-value').textContent = document.getElementById('beds').value;
+            document.getElementById('baths-value').textContent = parseFloat(document.getElementById('baths').value).toFixed(1);
+            document.getElementById('rating-value').textContent = parseFloat(document.getElementById('rating').value).toFixed(1);
+            
+            // 呼叫價格計算函數
+            calculatePrice();
+        }
+
+        // 這是模擬器的核心計算函數
+        function calculatePrice() {
+            // 1. 從各個 HTML 輸入元件（滑桿、下拉選單）獲取使用者選擇的值
+            const bedrooms = parseFloat(document.getElementById('bedrooms').value);
+            const beds = parseFloat(document.getElementById('beds').value);
+            const baths = parseFloat(document.getElementById('baths').value);
+            const rating = parseFloat(document.getElementById('rating').value);
+            const neighbourhood_group = parseFloat(document.getElementById('neighbourhood_group').value);
+            const room_type = parseFloat(document.getElementById('room_type').value);
+
+            // 2. 應用線性迴歸公式計算「對數價格 (log_price)」
+            // log_price = 截距 + 特徵1 × 特徵1的係數 + 特徵2 × 特徵2的係數 + ... + one-hot類別的係數 
+            // 注意：對於下拉選單，我們直接使用選項的 value (也就是係數本身)，因為它們代表的是 One-Hot 編碼後的虛擬變數。
+            let log_price = coefficients.intercept +
+                            (bedrooms * coefficients.bedrooms) +
+                            (beds * coefficients.beds) +
+                            (baths * coefficients.baths) +
+                            (rating * coefficients.rating) +
+                            neighbourhood_group + // 直接加上該行政區的係數
+                            room_type;            // 直接加上該房型的係數
+            
+            // 3. 將預測出的「對數價格」還原成「實際價格」
+            // 因為 Python 模型預測的是 np.log(price)，所以這裡要用指數函數 Math.exp() 把它反轉回來。
+            const predicted_price = Math.exp(log_price);
+
+            // 4. 將計算出的價格格式化後，更新到網頁上顯示
+            document.getElementById('predicted-price').textContent = `$${predicted_price.toFixed(2)}`;
+        }
+
+        // 當網頁內容完全載入後，執行一次 `updateValues` 函數，以顯示初始的預測價格。
+        document.addEventListener('DOMContentLoaded', updateValues);
+    </script>
+    <!-- 引入 Bootstrap 的 JavaScript 功能 (必須放在 </body> 前) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <!-- 頁尾 -->
+    <footer class="py-4 footer-custom text-white-50">
+        <div class="container text-center">
+            <small>Copyright © 數位地平線 2025</small>
+        </div>
+    </footer>
+</body>
+</html>

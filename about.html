@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 網頁基本設定 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ⭐️ 網頁標題（顯示在瀏覽器分頁上），請改成你的團隊名稱 ⭐️-->
+    <title>數位科技團隊的官方網站</title>
+    <!-- ⭐️ 設定網頁的小圖示（favicon）。若無可不改 ⭐️-->
+    <link rel="icon" href="image/icon1.jpg" type="image/png">
+
+    <!-- 引入 Bootstrap 的 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Bootstrap Icons 的 CSS (提供小圖示) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 自訂樣式，請依照你選擇的配色修改標示的部分。若文字顏色與背景色已具良好對比，就不必再修改。 -->
+    <style>
+        /* 這是針對整個 <body> 標籤的設定，會影響整個網頁的基礎樣式 */
+        body {
+            padding-top: 56px;
+            background-color: #C1BCAC; /* ⭐️  整個網頁的背景色 ⭐️ */
+            color: #212529;            /* ❗ 主要文字顏色 ❗ */
+        }
+        
+        /* --- 區塊背景樣式 --- */
+        /* 首頁區塊 */
+        .bg-section-primary {
+            background-color: #979B8D; /* ⭐️ 首頁區塊的背景色 ⭐️ */
+            color: #f1e9e8;            /* ❗ 首頁區塊的文字顏色 ❗ */
+        }
+        /* 淺色背景區塊 */
+        .bg-section-light {
+            background-color: #EFD0CA; /* ⭐️ 淺色區塊的背景色 ⭐️ */
+        }
+
+        /* --- 頁尾樣式 --- */
+        .footer-custom {
+            background-color: #494c48; /* ⭐️ 頁尾背景色 ⭐️ */
+            color: #ffffff;           /* ❗ 頁尾文字顏色 ❗ */
+        }
+
+        /* --- ▼▼▼ 以下樣式設定較為複雜，除非你對相關語法有一定了解，否則不建議修改。 ▼▼▼ --- */
+
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        /* 團隊合照/主圖 的樣式 */
+        .team-hero-img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 15px; /* 讓圖片帶點圓角 */
+        }
+        
+        /* 團隊成員照片的樣式 */
+        .member-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; /* 圓形頭像 */
+            border: 4px solid #fff; /* 加上白色邊框 */
+        }
+    </style>
+</head>
+
+
+<!-- 主要內容，請按照指示修改程式碼 -->
+<body>
+    <!-- ============================================= -->
+    <!--                      簡介                      -->
+    <!-- ============================================= -->
+    <header id="intro" class="bg-section-primary text-center section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <!-- ⭐️ 【修改圖片】請將 "image/team_photo.jpg" 換成你們的團隊合照或代表圖片 ⭐️-->
+                    <img src="image/team.png" class="img-fluid team-hero-img" alt="團隊合照">
+                </div>
+                <div class="col-md-7 text-md-start mt-4 mt-md-0">
+                    <!-- ⭐️ 【修改團隊名稱】請將 "數位地平線團隊" 換成你們的團隊名稱(自行想一個團隊名稱) ⭐️-->
+                    <h1 class="display-4 fw-bold">我們是數位地平線團隊</h1>
+                    <!-- ⭐️ 【修改團隊簡介】請寫一句簡短的團隊介紹、目標或口號 ⭐️ -->
+                    <p class="lead">我們是一群對前端技術充滿熱情的學生，喜歡將創意透過程式碼實現，打造兼具美感與實用性的數位作品。</p>
+                    <!-- ⭐️ 【增加按鈕】請新增一個「聯絡我們」的按鈕，並讓它點擊後可以跳轉到「團隊成員」所在的區塊。 ⭐️ -->
+                    <a href="#members" class="btn btn-outline-dark">聯絡我們</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================= -->
+    <!--                  團隊介紹                       -->
+    <!-- ============================================= -->
+    <section id="team-introduction" class="bg-section-light section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">團隊介紹</h2>
+            <div class="row">
+                <div class="col-lg-8 offset-lg-2">
+                    <!-- ⭐️ 【請修改關於我們的詳細介紹】 ⭐️ -->
+                    <p class="text-center fs-5">
+                        本團隊成立於2023年，由數位科技高中的學生組成。我們的目標是探索網頁開發的無限可能，並透過團隊合作，共同學習與成長。我們專注於學習 HTML, CSS, JavaScript 以及最新的前端框架，並積極參與校內外的科技競賽與專案開發，累積實戰經驗。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--                  資料集說明                    -->
+    <!-- ============================================= -->
+    <section id="dataset-description" class="section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">資料集說明</h2>
+
+            <div class="table-responsive">
+                <table class="table table-secondary table-striped table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th scope="col" style="width: 18%;">欄位名稱</th>
+                            <th scope="col" style="width: 25%;">說明</th>
+                            <th scope="col" style="width: 15%;">資料型態</th>
+                            <th scope="col">是否需要處理？為什麼？</th>
+                        </tr>
+                    </thead>
+                    <!-- ⭐️ 【表格內容】根據專題計畫書內容填入表格，請自行上網或至 Bootstrap 官網搜尋表格的寫法，自行完成表格 ⭐️-->
+                    <tbody>
+                        <tr>
+                            <td class="fw-bold">device_type</td>
+                            <td>使用者的裝置類型，例如手機或平板。</td>
+                            <td>數值 (Numeric)</td>
+                            <td>否。這個欄位已經轉為數值格式。</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">floor_level</td>
+                            <td>房源所在樓層。</td>
+                            <td>布林值 (Boolean)</td>
+                            <td>否。資料格式正確，不需處理。</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">weather_condition</td>
+                            <td>當天的天氣狀況，例如晴天或雨天。</td>
+                            <td>文字 (Text)</td>
+                            <td>否。這不是預測需要用到的欄位。</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">max_guests</td>
+                            <td>每月最多可接待的房客數。</td>
+                            <td>日期 (Date)</td>
+                            <td>否。這些值不需額外處理。</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-bold">landmark_list</td>
+                            <td>地點附近的熱門景點清單。</td>
+                            <td>分類 (Category)</td>
+                            <td>是。這是多值的文字資料（例如用逗號分隔的多個景點名稱），機器學習模型無法直接處理這類資料。需要將其轉換為數值型資料，通常的做法是將其拆解為多個特徵（例如：有無特定景點），或是將其轉換為表示景點數量的數值，甚至可以考慮將其刪除（如果無法與預測結果建立有效關聯）。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- ============================================= -->
+    <!--                     團隊成員                    -->
+    <!-- ============================================= -->
+    <section id="members" class="bg-section-light section-padding">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">團隊成員</h2>
+            <div class="row text-center">
+                <!-- ⭐️ 【團隊成員一】請修改成第一位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改名字、照片】請將 "image/member1.jpg" 換成成員一的大頭照 -->
+                    <img src="image/rin.jpeg" class="member-img mb-3" alt="成員一照片">
+                    <h5 class="fw-bold">Rin Shiraishi</h5>
+                    <p class="text-muted">專題構思與前言撰寫</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 
+                         "mailto:" 讓點擊連結的人自動打開寫信軟體 -->
+                        <a href="mailto:rin.shiraishi@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員二】請修改成第二位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                     <!-- 【修改照片】請將 "image/member2.jpg" 換成成員二的大頭照 -->
+                     <img src="image/yuki.jpg" class="member-img mb-3" alt="成員二照片">
+                     <h5 class="fw-bold">Yuki Tanaka</h5>
+                     <p class="text-muted">資料整理與前處理</p>
+                     <p>
+                         <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                         <a href="mailto:yuki.tanaka@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                         <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                     </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員三】請修改成第三位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/member3.jpg" 換成成員三的大頭照 -->
+                    <img src="image/haru.jpg" class="member-img mb-3" alt="成員三照片">
+                    <h5 class="fw-bold">Haru Ito</h5>
+                    <p class="text-muted">模型建立與實作</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:haru.ito@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員四】請修改成第四位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/kaito.jpg" 換成成員四的大頭照 -->
+                    <img src="image/niko.jpg" class="member-img mb-3" alt="成員四照片">
+                    <h5 class="fw-bold">niko Sato</h5>
+                    <p class="text-muted">結果展示與網頁設計</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:niko.sato@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員五】請修改成第五位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/aoi.jpg" 換成成員五的大頭照 -->
+                    <img src="image/aoi.jpg" class="member-img mb-3" alt="成員五照片">
+                    <h5 class="fw-bold">Aoi Tanaka</h5>
+                    <p class="text-muted">結果分析與反思</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:aoi.tanaka@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+                <!-- 【如何增加成員？】將上面任一個 ＜div class="col-md-4 mb-5"＞...＜/div＞區塊完整複製一份，貼在下面並修改內容即可！ -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="py-4 footer-custom text-white-50">
+        <div class="container text-center">
+            <!-- ⭐️ 【修改名稱】將"數位地平線" 換成你的名字。 ⭐️ -->
+            <!-- "©" ：這個版權符號。 -->
+            <small>Copyright © 數位地平線 2025</small>
+        </div>
+    </footer>
+
+    <!-- 引入 Bootstrap 的 JavaScript 功能 (必須放在 </body> 前) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

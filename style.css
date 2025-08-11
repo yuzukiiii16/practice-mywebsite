@@ -1,0 +1,47 @@
+/* --- 導覽列樣式 --- */
+.navbar-custom {
+    background-color:#494c48 ; /* ⭐️ 導覽列背景色 ⭐️ */
+}
+/* 選取導覽列中的「品牌名稱」和「導覽連結」 */
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: #ffffff; /* ❗ 導覽列文字顏色 ❗ */
+}
+
+/* --- 頁尾樣式 --- */
+.footer-custom {
+    background-color: #494c48; /* ⭐️ 頁尾背景色 ⭐️ */
+    color: #ffffff;           /* ❗ 頁尾文字顏色 ❗ */
+}
+
+.homeimage {
+    position: relative; /* 確保偽元素定位正確 */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('image/bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* --- 新增此屬性以產生滾動效果 --- */
+    color: white;
+    /* --- 調整 padding-top，將導覽列高度(56px)也算進去 --- */
+    padding: calc(8rem + 56px) 0 8rem 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+}
+
+
+.feature-icon {
+    font-size: 3rem;
+    color: #0d6efd;
+}
+
+/* --- 整體頁面佈局 (僅作用於 index.html) --- */
+#page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 設定最小高度為整個視窗高度 */
+}
+/* 讓 iframe 自動填滿剩餘空間 */
+#content-frame {
+  flex-grow: 1; /* 佔用所有可用的垂直空間 */
+  border: none;
+  width: 100%;
+  display: block;
+}
