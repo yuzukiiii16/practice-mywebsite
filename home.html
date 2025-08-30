@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 首頁 -->
+    <header class="homeimage text-center">
+        <div class="container">
+            <!-- ⭐️ 【修改首頁標語】請撰寫一句吸引人的標語，展現網站的主旨與特色 ⭐️ -->
+            <h1 class="display-4">預見您的紐約理想旅居</h1>
+            <!-- ⭐️ 【修改首頁說明】請簡要說明網站功能與價值，例如資料分析、幫助規劃旅程等 ⭐️ -->
+            <p class="lead">運用數據分析，揭開紐約 Airbnb 房價的秘密，讓您的旅程規劃更聰明、更透明。</p>
+        </div>
+    </header>
+
+    <!-- 功能介紹 -->
+    <div class="container py-5">
+        <div class="row text-center">
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="feature-icon mb-3">📈</div>
+                        <h3 class="card-title">房價預測分析</h3>
+                        <!-- ⭐️ 【修改功能一說明】請說明這項功能的用途、使用方式與亮點（例如模型、互動模擬器等） ⭐️ -->
+                        <p class="card-text">想知道臥室數量、所在區域和房型如何影響價格嗎？我們透過線性迴歸模型，為您解析影響房價的關鍵因素，並提供互動模擬器，讓您親手調整參數，即時查看價格變化！</p>
+                        <a href="prediction.html" class="btn btn-primary">開始分析</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <div class="feature-icon mb-3">🗺️</div>
+                        <h3 class="card-title">探索住宿分群</h3>
+                        <!-- ⭐️ 【修改功能二說明】請介紹這個功能的目的、使用者可以得到什麼資訊（例如分群結果、建議類型等） ⭐️ -->
+                        <p class="card-text">紐約房源五花八門，該從何選起？我們使用K-means將相似的房源分群。無論您是背包客、商務人士或家庭旅遊，都能快速找到最適合您的住宿風格。</p>
+                        <a href="clustering.html" class="btn btn-secondary">敬請期待</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <!-- 請將about中寫好的頁尾貼上 -->
+   <footer class="py-4 footer-custom text-white-50">
+    <div class="container text-center">
+        <small>Copyright © 數位地平線 2025</small>
+    </div>
+   </footer>
+
+    <!-- 引入 Bootstrap 的 JavaScript 功能 -->
+    <!-- **注意：這個 script標籤一定要放在 /body>標籤的前面** -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

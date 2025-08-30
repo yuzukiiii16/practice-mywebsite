@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <!-- 網頁基本設定 -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ⭐️ 網頁標題（顯示在瀏覽器分頁上） ⭐️-->
+    <title>數位科技團隊的官方網站</title>
+    <!-- ⭐️ 設定網頁的小圖示（favicon）。 ⭐️-->
+    <link rel="icon" href="image/icon1.jpg" type="image/png">
+
+    <!-- 引入 Bootstrap 的 CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- 引入 Bootstrap Icons 的 CSS (提供小圖示) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- 自訂樣式，請依照你選擇的配色修改標示的部分。若文字顏色與背景色已具良好對比，就不必再修改。 -->
+    <style>
+        /* 這是針對整個 <body> 標籤的設定，會影響整個網頁的基礎樣式 */
+        body {
+            padding-top: 56px; /* 在頁面上方留出空間，避免導覽列擋住內容 */
+            background-color: #C1BCAC; /* ⭐️  整個網頁的背景色 ⭐️ */
+            color: #212529;            /* ❗ 主要文字顏色 ❗ */
+        }
+        
+        /* --- 區塊背景樣式 --- */
+        /* 簡介區塊 */
+        #intro {
+            background-color: #979B8D; /* ⭐️ 首頁區塊的背景色 ⭐️ */
+            color: #f1e9e8;            /* ❗ 首頁區塊的文字顏色 ❗ */
+        }
+        /* 淺色背景區塊 */
+        .bg-section-light {
+            background-color: #EFD0CA; /* ⭐️ 淺色區塊的背景色 ⭐️ */
+        }
+
+        /* --- 頁尾樣式 --- */
+        .footer-custom {
+            background-color: #494c48; /* ⭐️ 頁尾背景色 ⭐️ */
+            color: #ffffff;           /* ❗ 頁尾文字顏色 ❗ */
+        }
+
+        /* --- ▼▼▼ 以下樣式設定較為複雜，除非你對相關語法有一定了解，否則不建議修改。 ▼▼▼ --- */
+
+        .section-padding {
+            padding-top: 5rem;
+            padding-bottom: 5rem;
+        }
+
+        /* 團隊合照/主圖 的樣式 */
+        .team-img {
+            border-radius: 15px; /* 讓圖片帶點圓角 */
+        }
+        
+        /* 團隊成員照片的樣式 */
+        .member-img {
+            width: 180px;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 50%; /* 圓形頭像 */
+            border: 4px solid #fff; /* 加上白色邊框 */
+        }
+    </style>
+</head>
+
+
+<!-- 主要內容，請按照指示修改程式碼 -->
+<body>
+    <!-- ============================================= -->
+    <!--                      簡介                      -->
+    <!-- ============================================= -->
+    <header id="intro" class="text-center section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5">
+                    <!-- ⭐️ 【圖片】你們的團隊合照或代表圖片 ⭐️-->
+                    <img src="image/team.png" class="img-fluid team-img" alt="團隊合照">
+                </div>
+                <div class="col-md-7 text-md-start mt-4 mt-md-0">
+                    <!-- ⭐️ 【團隊名稱】自行想一個團隊名稱 ⭐️-->
+                    <h1 class="display-4 fw-bold">我們是數位地平線團隊</h1>
+                    <!-- ⭐️ 【團隊簡介】請寫一句簡短的團隊介紹、目標或口號 ⭐️ -->
+                    <p class="lead">我們是一群對前端技術充滿熱情的學生，喜歡將創意透過程式碼實現，打造兼具美感與實用性的數位作品。</p>
+                    <!-- ⭐️ 【增加按鈕】請新增一個「聯絡我們」的按鈕，並讓它點擊後可以跳轉到「團隊成員」所在的區塊。 ⭐️ -->
+                    <a href="#members" class="btn btn-outline-dark">聯絡我們</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- ============================================= -->
+    <!--                     團隊成員                    -->
+    <!-- ============================================= -->
+    <section id="members" class="section-padding bg-section-light">
+        <div class="container">
+            <h2 class="text-center fw-bold mb-5">團隊成員</h2>
+            <div class="row text-center">
+                <!-- ⭐️ 【團隊成員一】請修改成第一位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改名字、照片】請將 "image/member1.jpg" 換成成員一的大頭照 -->
+                    <img src="image/rin.jpeg" class="member-img mb-3" alt="成員一照片">
+                    <h5 class="fw-bold">Rin Shiraishi</h5>
+                    <p class="text-muted">專題構思與前言撰寫</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 
+                         "mailto:" 讓點擊連結的人自動打開寫信軟體 -->
+                        <a href="mailto:rin.shiraishi@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員二】請修改成第二位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                     <!-- 【修改照片】請將 "image/member2.jpg" 換成成員二的大頭照 -->
+                     <img src="image/yuki.jpg" class="member-img mb-3" alt="成員二照片">
+                     <h5 class="fw-bold">Yuki Tanaka</h5>
+                     <p class="text-muted">資料整理與前處理</p>
+                     <p>
+                         <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                         <a href="mailto:yuki.tanaka@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                         <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                     </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員三】請修改成第三位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/member3.jpg" 換成成員三的大頭照 -->
+                    <img src="image/haru.jpg" class="member-img mb-3" alt="成員三照片">
+                    <h5 class="fw-bold">Haru Ito</h5>
+                    <p class="text-muted">模型建立與實作</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:haru.ito@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員四】請修改成第四位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/kaito.jpg" 換成成員四的大頭照 -->
+                    <img src="image/niko.jpg" class="member-img mb-3" alt="成員四照片">
+                    <h5 class="fw-bold">niko Sato</h5>
+                    <p class="text-muted">結果展示與網頁設計</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:niko.sato@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+
+                <!-- ⭐️ 【團隊成員五】請修改成第五位成員的資料 ⭐️-->
+                <div class="col-md-4 mb-5">
+                    <!-- 【修改照片】請將 "image/aoi.jpg" 換成成員五的大頭照 -->
+                    <img src="image/aoi.jpg" class="member-img mb-3" alt="成員五照片">
+                    <h5 class="fw-bold">Aoi Tanaka</h5>
+                    <p class="text-muted">結果分析與反思</p>
+                    <p>
+                        <!-- 【修改連結】將 mailto: 後的 email 和 href="" 中的 GitHub 網址換成自己的 -->
+                        <a href="mailto:aoi.tanaka@example.com" class="text-dark me-3 fs-4"><i class="bi bi-envelope-fill"></i></a>
+                        <a href="https://github.com/" class="text-dark fs-4" target="_blank"><i class="bi bi-github"></i></a>
+                    </p>
+                </div>
+                <!-- 【如何增加成員？】將上面任一個 ＜div class="col-md-4 mb-5"＞...＜/div＞區塊完整複製一份，貼在下面並修改內容即可！ -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================= -->
+    <!--                 JavaScript練習                 -->
+    <!-- ============================================= -->
+    <section id="count" class="section-padding">
+        <div class="container"> <!-- container：Bootstrap 容器，置中、響應式寬度 -->
+            <h4>JavaScript練習 四則運算</h4>
+            <p class="card-text">請在下方的輸入框中填入數字，然後點擊按鈕計算結果。</p>
+                <!-- 使用者輸入的表單區域 -->
+                    <!-- d-flex：讓這一排的輸入框和符號排在同一行 -->
+                    <!-- align-items-center：垂直置中 -->
+                    <!-- justify-content-center：水平置中 -->
+                    <!-- p-3：區塊四周留一點空隙 -->
+                    <!-- my-3：區塊上下留一點空隙 -->
+                <div class="d-flex align-items-center justify-content-center p-3 my-3">
+                    <!-- fs-4：字體大小約 1.5rem -->
+                    <!-- form-control：Bootstrap 輸入框樣式 -->
+                    <!-- mx-2：輸入框左右留一點空隙 -->
+                    <span class="fs-4">（</span> 
+                    <input type="number" class="form-control calc-input mx-2" id="num1" placeholder="請輸入數字">
+                    <span class="fs-4">+</span>
+                    <input type="number" class="form-control calc-input mx-2" id="num2" placeholder="請輸入數字">
+                    <span class="fs-4">）</span>
+                    <span class="fs-4">×</span>
+                    <input type="number" class="form-control calc-input mx-2" id="num3" placeholder="請輸入數字">
+                    <span class="fs-4">÷</span>
+                    <input type="number" class="form-control calc-input mx-2" id="num4" placeholder="請輸入數字">
+                    <span class="fs-4">-</span>
+                    <input type="number" class="form-control calc-input mx-2" id="num5" placeholder="請輸入數字">
+                </div>
+
+                    <!-- 觸發計算的按鈕 -->
+                     <!-- btn：Bootstrap 按鈕樣式 -->
+                     <!-- btn-success：綠色按鈕 -->
+                    <button id="calculateBtn" class="btn btn-success">點我計算結果</button>
+
+                    <br><br>
+
+                    <!-- 顯示結果與錯誤訊息的區域 -->
+                     <!-- text-muted：灰色字體 -->
+                     <!-- text-danger：紅色字體（錯誤訊息） -->
+                     <!-- fw-bold：字體加粗 -->
+                     <!-- mt-2：在上面多留一點空白-->
+                    <h5>結果：</h5>
+                    <h3 id="result" class="text-muted">（尚未計算）</h3>
+                    <div id="errorMessage" class="text-danger fw-bold mt-2"></div>
+                
+        </div>
+    </section>
+
+    <!-- 頁尾 -->
+    <footer class="py-4 footer-custom">
+        <div class="container text-center">
+            <!-- ⭐️ 【修改名稱】將"數位地平線" 換成你的名字。 ⭐️ -->
+            <!-- "©" ：這個版權符號。 -->
+            <small>Copyright © 數位地平線 2025</small>
+        </div>
+    </footer>
+
+    <script>
+        // ========================================================
+        //  第一階段：連接 HTML 元素與 JavaScript 變數
+        //  目標：學會使用 document.getElementById()
+        // ========================================================
+
+        // ⭐️請找到按鈕的id並填入。const calculateButton：用一個名為 calculateButton 的常數(const)儲存起來。⭐️
+        const calculateButton = document.getElementById('calculateBtn');
+
+        // ⭐️請找到h3標籤的id並填入，這是結果顯示區，用常數 result 儲存⭐️
+        const result = document.getElementById('result');
+
+        // ⭐️請找到div標籤的id並填入，這是錯誤訊息區，用常數 errorMessage 儲存⭐️
+        const errorMessage = document.getElementById('errorMessage');
+
+        // ⭐️請找到所有數字輸入框的id，並分別用對應的常數儲存起來⭐️
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const num3Input = document.getElementById('num3');
+        const num4Input = document.getElementById('num4');
+        const num5Input = document.getElementById('num5');
+
+
+        // ========================================================
+        //  第二階段：為按鈕加上點擊事件，並實現計算邏輯
+        //  目標：學會事件處理、取值、計算與更新畫面
+        // ========================================================
+
+        // 這行程式碼的意思是：「當 calculateButton 這個按鈕被點擊(click)時，就執行大括號 {} 裡面的所有程式碼」
+        calculateButton.addEventListener('click', function() {
+            // 清除上一次的錯誤訊息和結果樣式
+            errorMessage.textContent = '';
+            result.textContent = '（計算中...）';
+            result.className = 'text-muted'; // 重設樣式
+
+            //⭐️從五個輸入框變數中，取得使用者輸入的「值(.value)」，並用 parseFloat() 轉換成數字，存到新的變數 n1, n2, n3, n4, n5 中⭐️
+            const n1 = parseFloat(num1Input.value);
+            const n2 = parseFloat(num2Input.value);
+            const n3 = parseFloat(num3Input.value);
+            const n4 = parseFloat(num4Input.value);
+            const n5 = parseFloat(num5Input.value);
+
+            // ⭐️檢查使用者輸入的是否為有效數字⭐️
+            // 提示：使用 isNaN() 函式。如果任一輸入不是數字，就在 errorMessage 顯示錯誤訊息，並使用 return; 中斷程式
+            if (isNaN(n1) || isNaN(n2) || isNaN(n3) || isNaN(n4) || isNaN(n5)) {
+                errorMessage.textContent = '錯誤：請確保所有欄位都已填入有效的數字！';
+                result.textContent = '（計算失敗）';
+                return; // 中斷函式執行
+            }
+            
+            // ⭐️檢查除數 n4 是否為 0。如果是，顯示'錯誤：除數不能為零！'、結果顯示'（計算失敗）'，並中斷程式⭐️
+            if (n4 === 0) {
+                errorMessage.textContent = '錯誤：除數不能為零！';
+                result.textContent = '（計算失敗）';
+                return; // 中斷函式執行
+            }
+
+            // ⭐️根據公式 (n1 + n2) * n3 / n4 - n5 進行計算，並將結果存到 answer 變數中⭐️
+            const answer = (n1 + n2) * n3 / n4 - n5;
+
+            // ⭐️將計算出的 answer 更新到 result 元素的畫面文字中⭐️
+            // 提示：使用 .textContent
+            result.textContent = answer;
+
+            // 以下為 result區塊的樣式調整：
+            // 把灰色文字 (text-muted) 拿掉，改成藍色粗體字
+            result.classList.remove('text-muted');
+            result.classList.add('text-primary', 'fw-bold');
+        });
+    </script>
+    <!-- 引入 Bootstrap 的 JavaScript 功能 (必須放在 </body> 前) -->
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
